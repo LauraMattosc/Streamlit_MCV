@@ -12,9 +12,9 @@ if uploaded_file is not None:
     try:
         # Tentar ler a planilha com diferentes configurações
         try:
-            df = pd.read_csv(uploaded_file, encoding='latin1', delimiter=',', error_bad_lines=False)
+            df = pd.read_csv(uploaded_file, encoding='latin1', delimiter=',', on_bad_lines='skip')
         except pd.errors.ParserError:
-            df = pd.read_csv(uploaded_file, encoding='latin1', delimiter=';', error_bad_lines=False)
+            df = pd.read_csv(uploaded_file, encoding='latin1', delimiter=';', on_bad_lines='skip')
 
         st.write("Planilha lida com sucesso!")  # Log de depuração
         st.write("Dados da planilha bruta:")
