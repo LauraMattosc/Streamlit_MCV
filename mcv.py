@@ -10,8 +10,8 @@ uploaded_file = st.file_uploader("Faça o upload da planilha com os dados das ne
 if uploaded_file is not None:
     st.write("Arquivo carregado com sucesso!")  # Log de depuração
     try:
-        # Ler a planilha
-        df = pd.read_csv(uploaded_file)
+        # Ler a planilha com especificação de codificação
+        df = pd.read_csv(uploaded_file, encoding='latin1')
         st.write("Planilha lida com sucesso!")  # Log de depuração
         st.write("Dados da planilha bruta:")
         st.write(df)
